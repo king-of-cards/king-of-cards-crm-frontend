@@ -1,0 +1,103 @@
+/* Lead filter bar (admin and vendor dashboards) */
+
+.lead-filters {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 17px;
+  padding: 15px;
+  border: 1px solid #343439;
+  border-radius: 10px;
+  background: #1b1b20;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.filter-field {
+  display: flex;
+  flex: 0 1 170px;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.filter-field > span {
+  color: #92929d;
+  font-size: 11px;
+}
+
+.filter-field select,
+.filter-field input {
+  width: 100%;
+  min-width: 0;
+}
+
+.filter-search {
+  flex: 1 1 220px;
+}
+
+.filter-locked {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 39px;
+  padding: 9px 12px;
+  border: 1px solid #57472c;
+  border-radius: 7px;
+  background: #2b2419;
+  color: #e1c182;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stage-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stage-chip {
+  padding: 7px 13px;
+  border: 1px solid #3b3b40;
+  border-radius: 16px;
+  background: #222226;
+  color: #c8c8d0;
+  font-size: 12px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.stage-chip:hover {
+  background: #2b2b31;
+  color: #fff;
+}
+
+.stage-chip.active {
+  border-color: #d1ad6a;
+  background: #2b2419;
+  color: #e1c182;
+  font-weight: 600;
+}
+
+.filter-summary {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #9b9ba5;
+  font-size: 12px;
+}
+
+.filter-summary strong {
+  color: #e1c182;
+}
+
+@media (max-width: 600px) {
+  .filter-field {
+    flex: 1 1 100%;
+  }
+}

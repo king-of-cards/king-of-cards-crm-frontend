@@ -1,0 +1,55 @@
+/* Admin vendor performance: two-way lead exchange */
+
+.perf-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.perf-group {
+  padding: 16px;
+  border: 1px solid #343439;
+  border-radius: 11px;
+  background: #151518;
+}
+
+.perf-group h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+
+.perf-group.out h3 { color: #e1c182; }
+.perf-group.in h3 { color: #9cc3f0; }
+
+.perf-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.perf-group.in .vendor-lead-kpi strong { color: #9cc3f0; }
+
+.perf-table th,
+.perf-table td {
+  vertical-align: middle;
+}
+
+.perf-head {
+  text-align: center;
+  border-bottom: 2px solid #39393f;
+}
+
+.perf-head.out { color: #e1c182; border-bottom-color: #c5a15e; }
+.perf-head.in { color: #9cc3f0; border-bottom-color: #4a78b0; }
+
+.perf-table tfoot td {
+  border-top: 1px solid #39393f;
+  background: #202024;
+  color: #f3f3f5;
+}
+
+@media (max-width: 1250px) {
+  .perf-summary { grid-template-columns: 1fr; }
+}

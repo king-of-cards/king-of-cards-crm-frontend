@@ -1755,7 +1755,7 @@ td strong {
   .lead-drawer {
     width: 100%;
   }
-
+ 
   .lead-drawer-header {
     padding: 19px;
   }
@@ -2130,4 +2130,714 @@ textarea:focus-visible {
 
 .attachment-upload input {
   display: none;
+}
+/* =========================================
+   QUOTATION SWIPE ROW (dashboards)
+========================================= */
+
+.swipe-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.swipe-arrows button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #414148;
+  border-radius: 8px;
+  background: #202024;
+  color: #e1c182;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.swipe-arrows button:hover {
+  background: #2b2b31;
+}
+
+.swipe-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #454044 transparent;
+}
+
+.swipe-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border: 1px solid #343439;
+  border-radius: 10px;
+  background: #1b1b20;
+  cursor: pointer;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.swipe-card:hover {
+  border-color: #74603d;
+  transform: translateY(-2px);
+}
+
+.swipe-card:focus-visible {
+  outline: 2px solid #d8b36a;
+  outline-offset: 3px;
+}
+
+.swipe-preview {
+  position: relative;
+  height: 170px;
+  border-bottom: 1px solid #343439;
+  background: #111114;
+}
+
+/* The preview must not catch clicks or swipes, so the card stays clickable. */
+.file-preview-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+  pointer-events: none;
+}
+
+.file-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.file-tile,
+.swipe-no-file {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 16px;
+  color: #92929d;
+  font-size: 11px;
+  text-align: center;
+}
+
+.file-ext {
+  padding: 10px 14px;
+  border: 1px solid #57472c;
+  border-radius: 8px;
+  background: #272116;
+  color: #e1c182;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.swipe-file-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgb(0 0 0 / 70%);
+  color: #e1c182;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.swipe-body {
+  display: grid;
+  gap: 7px;
+  padding: 13px 14px 14px;
+}
+
+.swipe-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.swipe-head strong {
+  overflow: hidden;
+  color: #f3f3f5;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swipe-head .stage-badge {
+  flex-shrink: 0;
+}
+
+.swipe-meta {
+  margin: 0;
+  color: #92929d;
+  font-size: 11px;
+}
+
+.swipe-amount {
+  margin: 0;
+  color: #e1c182;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.swipe-amount small {
+  color: #92929d;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.swipe-file-name {
+  margin: 0;
+  overflow: hidden;
+  color: #b5b5bf;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swipe-comment {
+  margin: 2px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid #333339;
+  color: #b5b5bf;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.swipe-comment span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.swipe-comment small {
+  display: block;
+  margin-top: 3px;
+  color: #7d7d87;
+  font-size: 10px;
+}
+
+.swipe-comment-empty {
+  color: #7d7d87;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .swipe-card {
+    flex-basis: 82%;
+  }
+}
+
+/* =========================================
+   QUOTATION TIMELINE
+========================================= */
+
+.quotation-timeline {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #343439;
+}
+
+.quotation-timeline h4 {
+  margin: 0 0 14px;
+  color: #d4d4da;
+  font-size: 13px;
+}
+
+.timeline-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0 0 0 14px;
+  border-left: 1px solid #3b3b40;
+  list-style: none;
+}
+
+.timeline-list li {
+  position: relative;
+  display: grid;
+  gap: 3px;
+}
+
+.timeline-list li::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -19px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #151518;
+  border-radius: 50%;
+  background: #c5a15e;
+}
+
+.timeline-text {
+  color: #e5e5e9;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.timeline-meta {
+  color: #92929d;
+  font-size: 10px;
+}
+
+/* =========================================
+   EMAIL CHECK HINT
+========================================= */
+
+.field-hint {
+  font-size: 11px;
+}
+
+.field-hint.ok {
+  color: #8bd5a6;
+}
+
+.field-hint.bad {
+  color: #f1b6c1;
+}
+
+.form-field input.input-ok {
+  border-color: #315b43;
+}
+
+.form-field input.input-bad {
+  border-color: #a94d5d;
+}
+/* =========================================
+   QUOTATION SWIPE ROW (dashboards)
+========================================= */
+
+.swipe-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.swipe-arrows button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #414148;
+  border-radius: 8px;
+  background: #202024;
+  color: #e1c182;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.swipe-arrows button:hover {
+  background: #2b2b31;
+}
+
+.swipe-strip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #454044 transparent;
+}
+
+.swipe-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border: 1px solid #343439;
+  border-radius: 10px;
+  background: #1b1b20;
+  cursor: pointer;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.swipe-card:hover {
+  border-color: #74603d;
+  transform: translateY(-2px);
+}
+
+.swipe-card:focus-visible {
+  outline: 2px solid #d8b36a;
+  outline-offset: 3px;
+}
+
+.swipe-preview {
+  position: relative;
+  height: 170px;
+  border-bottom: 1px solid #343439;
+  background: #111114;
+}
+
+/* The preview must not catch clicks or swipes, so the card stays clickable. */
+.file-preview-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+  pointer-events: none;
+}
+
+.file-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.file-tile,
+.swipe-no-file {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 16px;
+  color: #92929d;
+  font-size: 11px;
+  text-align: center;
+}
+
+.file-ext {
+  padding: 10px 14px;
+  border: 1px solid #57472c;
+  border-radius: 8px;
+  background: #272116;
+  color: #e1c182;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.swipe-file-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgb(0 0 0 / 70%);
+  color: #e1c182;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.swipe-body {
+  display: grid;
+  gap: 7px;
+  padding: 13px 14px 14px;
+}
+
+.swipe-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.swipe-head strong {
+  overflow: hidden;
+  color: #f3f3f5;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swipe-head .stage-badge {
+  flex-shrink: 0;
+}
+
+.swipe-meta {
+  margin: 0;
+  color: #92929d;
+  font-size: 11px;
+}
+
+.swipe-amount {
+  margin: 0;
+  color: #e1c182;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.swipe-amount small {
+  color: #92929d;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.swipe-file-name {
+  margin: 0;
+  overflow: hidden;
+  color: #b5b5bf;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swipe-comment {
+  margin: 2px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid #333339;
+  color: #b5b5bf;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.swipe-comment span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.swipe-comment small {
+  display: block;
+  margin-top: 3px;
+  color: #7d7d87;
+  font-size: 10px;
+}
+
+.swipe-comment-empty {
+  color: #7d7d87;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .swipe-card {
+    flex-basis: 82%;
+  }
+}
+
+/* =========================================
+   QUOTATION TIMELINE
+========================================= */
+
+.quotation-timeline {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #343439;
+}
+
+.quotation-timeline h4 {
+  margin: 0 0 14px;
+  color: #d4d4da;
+  font-size: 13px;
+}
+
+.timeline-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0 0 0 14px;
+  border-left: 1px solid #3b3b40;
+  list-style: none;
+}
+
+.timeline-list li {
+  position: relative;
+  display: grid;
+  gap: 3px;
+}
+
+.timeline-list li::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -19px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #151518;
+  border-radius: 50%;
+  background: #c5a15e;
+}
+
+.timeline-text {
+  color: #e5e5e9;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.timeline-meta {
+  color: #92929d;
+  font-size: 10px;
+}
+
+/* =========================================
+   EMAIL CHECK HINT
+========================================= */
+
+.field-hint {
+  font-size: 11px;
+}
+
+.field-hint.ok {
+  color: #8bd5a6;
+}
+
+.field-hint.bad {
+  color: #f1b6c1;
+}
+
+.form-field input.input-ok {
+  border-color: #315b43;
+}
+
+.form-field input.input-bad {
+  border-color: #a94d5d;
+}
+/* =========================================
+   COMPACT QUOTATION SWIPE ROW
+========================================= */
+
+.swipe-panel {
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.swipe-panel .panel-heading {
+  margin-bottom: 12px;
+}
+
+.swipe-arrows button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.swipe-strip {
+  gap: 10px;
+  padding-bottom: 6px;
+}
+
+.swipe-card {
+  flex: 0 0 235px;
+}
+
+.swipe-preview {
+  height: 95px;
+}
+
+.swipe-body {
+  gap: 4px;
+  padding: 10px 12px;
+}
+
+.swipe-head strong {
+  font-size: 12px;
+}
+
+.swipe-head .stage-badge {
+  padding: 3px 7px;
+  font-size: 10px;
+}
+
+.swipe-meta {
+  font-size: 10px;
+}
+
+.swipe-amount {
+  font-size: 13px;
+}
+
+.swipe-nofile {
+  color: #7d7d87;
+}
+
+.swipe-comment {
+  margin: 2px 0 0;
+  padding-top: 6px;
+  font-size: 10px;
+}
+
+.swipe-comment span {
+  -webkit-line-clamp: 1;
+}
+
+@media (max-width: 600px) {
+  .swipe-card {
+    flex-basis: 78%;
+  }
+}
+/* Quotation icon column + preview popup */
+
+/* The Quote column soaks up the leftover width, so the other columns pack to the left */
+.quote-col {
+  width: 100%;
+  text-align: left;
+}
+
+/* A fixed, modest gap between the other columns instead of random stretching */
+.table-wrap table:has(.quote-col) th:not(.quote-col),
+.table-wrap table:has(.quote-col) td:not(.quote-col) {
+  padding-right: 36px;
+}
+.quote-icon-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #57472c;
+  border-radius: 8px;
+  background: #272116;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.quote-icon-btn:hover {
+  background: #383020;
+  border-color: #d1ad6a;
+}
+
+.quote-preview-modal {
+  max-width: 520px;
+}
+
+.quote-preview-sub {
+  margin: 8px 0 14px;
+  font-size: 12px;
+}
+
+.quote-preview-box {
+  height: 300px;
+  overflow: hidden;
+  border: 1px solid #343439;
+  border-radius: 9px;
+  background: #111114;
+}
+
+.quote-preview-box .file-preview-frame {
+  pointer-events: auto;
+}
+
+.quote-preview-amount {
+  margin: 14px 0 4px;
+  color: #e1c182;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.quote-preview-amount small {
+  color: #92929d;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.quote-preview-file {
+  margin: 0 0 10px;
+  color: #b5b5bf;
+  font-size: 12px;
+}
+
+.quote-preview-comment {
+  margin-bottom: 18px;
+  padding-top: 10px;
+  border-top: 1px solid #333339;
+  color: #d0d0d6;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.quote-preview-comment small {
+  display: block;
+  margin-top: 4px;
+  color: #7d7d87;
+  font-size: 10px;
 }

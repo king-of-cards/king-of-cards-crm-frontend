@@ -1,0 +1,154 @@
+/* Bulk upload pop-up and vendor performance report */
+
+.bulk-modal {
+  max-width: 820px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.bulk-modal > p {
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.bulk-step {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.bulk-file-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bulk-file-button {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bulk-file-name {
+  color: #a9a9b2;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.bulk-hint {
+  margin: 0 0 12px;
+  color: #92929d;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.bulk-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.bulk-summary span {
+  padding: 6px 11px;
+  border: 1px solid #3b3b40;
+  border-radius: 16px;
+  background: #222226;
+  color: #c8c8d0;
+  font-size: 12px;
+}
+
+.bulk-summary .ok { border-color: #315b43; background: #172a20; color: #8bd5a6; }
+.bulk-summary .info { border-color: #3c4f6b; background: #18222f; color: #9cc3f0; }
+.bulk-summary .warn { border-color: #57472c; background: #2b2419; color: #e1c182; }
+.bulk-summary .bad { border-color: #66404a; background: #301b22; color: #f1b6c1; }
+
+.bulk-table {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.bulk-tag {
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #222226;
+  color: #dedee3;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.bulk-tag.new { background: #172a20; color: #8bd5a6; }
+.bulk-tag.crosssell { background: #18222f; color: #9cc3f0; }
+.bulk-tag.duplicate, .bulk-tag.repeat { background: #2b2419; color: #e1c182; }
+.bulk-tag.invalid { background: #301b22; color: #f1b6c1; }
+
+.bulk-reason {
+  display: block;
+  margin-top: 4px;
+  color: #92929d;
+  font-size: 10px;
+  white-space: normal;
+}
+
+.bulk-done {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 22px;
+  padding: 16px;
+  border: 1px solid #315b43;
+  border-radius: 9px;
+  background: #172a20;
+  color: #8bd5a6;
+  font-size: 13px;
+}
+
+.modal-actions .button-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.vendor-heading-actions .button-secondary,
+.panel-heading .button-secondary {
+  white-space: nowrap;
+}
+
+/* Vendor performance */
+
+.perf-kpis {
+  margin-bottom: 20px;
+}
+
+.perf-best {
+  font-size: 18px !important;
+  overflow-wrap: anywhere;
+}
+
+.perf-bar {
+  width: 110px;
+  height: 7px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2b2b31;
+}
+
+.perf-bar > span {
+  display: block;
+  height: 100%;
+  background: #c5a15e;
+}
+
+.perf-advice {
+  padding: 4px 9px;
+  border-radius: 12px; 
+  background: #222226;
+  color: #c8c8d0;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.perf-advice.more { background: #172a20; color: #8bd5a6; }
+.perf-advice.steady { background: #2b2419; color: #e1c182; }
+.perf-advice.review { background: #301b22; color: #f1b6c1; }
