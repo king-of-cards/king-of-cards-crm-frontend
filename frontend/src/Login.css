@@ -143,3 +143,22 @@
     padding: 28px 22px;
   }
 }
+.login-error {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  background: rgba(220, 38, 38, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.login-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.login-submit:disabled:hover {
+  background: #c5a15e;
+}

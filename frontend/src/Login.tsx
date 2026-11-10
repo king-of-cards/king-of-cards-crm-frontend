@@ -3,10 +3,10 @@ import "./Login.css";
 
 export type UserRole = "Admin" | "Vendor";
 
-// Which login page this is. It comes from the web address:
-//   /         -> "Admin"   (admin-only login)
-//   /vendor   -> "Vendor"  (vendor-only login)
-//   /login    -> "Any"     (one login for both; credentials decide)
+// Which login page this is.
+//   "Admin"  -> admin-only login
+//   "Vendor" -> vendor-only login
+//   "Any"    -> one login for both; credentials decide
 export type LoginMode = UserRole | "Any";
 
 type LoginProps = {
@@ -15,16 +15,29 @@ type LoginProps = {
     mode: LoginMode,
     username: string,
     password: string
-  ) => void;
+  ) => void | Promise<void>;
+  // Optional: the label of the first field ("Username" by default).
+  usernameLabel?: string;
+  // Optional: an error message to show above the button.
+  error?: string;
+  // Optional: true while the login request is running.
+  submitting?: boolean;
 };
 
-export default function Login({ mode, onLogin }: LoginProps) {
+export default function Login({
+  mode,
+  onLogin,
+  usernameLabel = "Username",
+  error = "",
+  submitting = false,
+}: LoginProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     onLogin(mode, username.trim(), password);
   }
 
@@ -46,11 +59,11 @@ export default function Login({ mode, onLogin }: LoginProps) {
         </p>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">{usernameLabel}</label>
           <input
             id="username"
             type="text"
-            placeholder="Enter username"
+            placeholder={`Enter ${usernameLabel.toLowerCase()}`}
             autoComplete="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
@@ -79,8 +92,14 @@ export default function Login({ mode, onLogin }: LoginProps) {
             </button>
           </div>
 
-          <button className="login-submit" type="submit">
-            Sign In
+          {error && (
+            <div className="login-error" role="alert">
+              {error}
+            </div>
+          )}
+
+          <button className="login-submit" type="submit" disabled={submitting}>
+            {submitting ? "Signing In…" : "Sign In"}
           </button>
         </form>
       </section>
